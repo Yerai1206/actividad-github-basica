@@ -1,18 +1,33 @@
-// Calculator.java (rama main/master, cambio para provocar conflicto)
 public class Calculator {
-	public static int add(int a, int b) { return a + b; }
 
-	public static void main(String[] args) {
-		if (args.length < 2) {
-			System.out.println("Uso: java Calculator <a> <b>");
-			return;
-		}
-		int a = Integer.parseInt(args[0]);
-		int b = Integer.parseInt(args[1])1;
+    public static int add(int a, int b) {
+        return a + b;
+    }
 
-		System.out.printf(
-			"Resultado suma = %d (a=%d, b=%d)%n",
-			add(a, b), a, b
-		);
-	}
+    public static int sub(int a, int b) {
+        return a - b;
+    }
+
+    public static void main(String[] args) {
+        if (args.length != 3) {
+            System.out.printf("Uso: java Calculator [sum|sub] num1 num2%n");
+            return;
+        }
+
+        String operation = args[0];
+        int a = Integer.parseInt(args[1]);
+        int b = Integer.parseInt(args[2]);
+        int result;
+
+        if (operation.equals("sum")) {
+            result = add(a, b);
+        } else if (operation.equals("sub")) {
+            result = sub(a, b);
+        } else {
+            System.out.printf("Operacion invalida. Usa sum o sub.%n");
+            return;
+        }
+
+        System.out.printf("Resultado: %d%n", result);
+    }
 }
