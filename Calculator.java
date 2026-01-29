@@ -1,27 +1,18 @@
-// Calculator.java (rama feature/sub)
+// Calculator.java (rama main/master, cambio para provocar conflicto)
 public class Calculator {
 	public static int add(int a, int b) { return a + b; }
-	public static int sub(int a, int b) { return a - b; }
 
 	public static void main(String[] args) {
 		if (args.length < 2) {
-			System.out.println(
-				"Uso: java Calculator <a> <b> [sum|sub]"
-			);
+			System.out.println("Uso: java Calculator <a> <b>");
 			return;
 		}
 		int a = Integer.parseInt(args[0]);
-		int b = Integer.parseInt(args[1]);
-		String op = (args.length >= 3) ? args[2] : "sum";
+		int b = Integer.parseInt(args[1])1;
 
-		if ("sub".equals(op)) {
-			System.out.println(
-				"Resta: " + a + " - " + b + " = " + sub(a, b)
-			);
-		} else {
-			System.out.println(
-				"Suma: " + a + " + " + b + " = " + add(a, b)
-			);
-		}
+		System.out.printf(
+			"Resultado suma = %d (a=%d, b=%d)%n",
+			add(a, b), a, b
+		);
 	}
 }
